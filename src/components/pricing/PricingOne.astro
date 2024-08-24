@@ -1,0 +1,190 @@
+<section x-data="{annual: false}">
+  <div class="px-8 md:px-12 max-w-6xl mx-auto py-32 2xl:max-w-7xl items-center">
+    <div class="text-balance mx-auto text-center">
+      <p
+        class="text-black font-serif text-4xl lg:text-8xl uppercase font-semibold"
+      >
+        Get acces to all posts.
+      </p>
+      <div class="md:max-w-sm mx-auto lg:mx-0">
+        <div
+          class="inline-flex w-full border rounded-full mt-6 overflow-hidden  p-0.5 z-0"
+        >
+          <button
+            class="font-medium rounded-full transition w-full py-2 block px-8 text-xs text-black bg-mist-500  "
+            :class="{ 'bg-mist-500  text-black ': !annual, 'text-slate-400 ': annual }"
+            @click="annual = false"
+            type="button"
+          >
+            Monthly
+          </button>
+          <button
+            class="font-medium rounded-full transition w-full py-2 block px-8 text-xs text-slate-400 "
+            :class="{ 'bg-mist-500  text-black ': annual, 'text-slate-400 ': !annual }"
+            @click="annual = true"
+            type="button"
+          >
+            Annual
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mx-auto space-y-4 lg:grid lg:grid-cols-3 lg:gap-5 lg:space-y-0 mt-12"
+    >
+      <div class="flex flex-col overflow-hidden border">
+        <div class="px-6 py-8 sm:p-10 sm:pb-6">
+          <div
+            class="grid items-end justify-center w-full grid-cols-1 text-left"
+          >
+            <div class="mt-6">
+              <h2
+                class="text-lg lg:text-4xl text-black font-semibold font-serif"
+              >
+                Hobby
+              </h2>
+              <p class="mt-2 text-wood-500 text-black">
+                Premium information every sunday
+              </p>
+              <ul
+                class="space-y-3 font-normal list-inside list-disc mt-3 text-black"
+                role="list"
+              >
+                <li>Access to premium posts</li>
+                <li>Weekly newsletters</li>
+                <li>Simple, secure card payment</li>
+                <li>No Advertising</li>
+                <li>Special discounts</li>
+              </ul>
+            </div>
+            <div class="order-first">
+              <p>
+                <span
+                  x-text="annual ? '$9' : '$19'"
+                  class="text-5xl font-light text-black font-serif"></span>
+                <span
+                  x-text="annual ? '/annual' : '/month'"
+                  class="ext-wood-500 font-medium text-black">/month</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between flex-1 px-6 pb-8 sm:px-8">
+          <div>
+            <a
+              href="#_"
+              title="link to your page"
+              aria-label="your label"
+              class="inline-flex justify-center py-1 px-6 h-10 items-center text-sm font-medium tracking-wide focus:outline-none bg-black text-white hover:bg-mist-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mist-600 active:bg-mist-700 active:text-white/80 disabled:opacity-30 disabled:hover:bg-mist-600 w-full"
+            >
+              Get started
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col overflow-hidden bg-wood-500 ">
+        <div class="px-6 py-8 sm:p-10 sm:pb-6">
+          <div
+            class="grid items-end justify-center w-full grid-cols-1 text-left"
+          >
+            <div class="mt-6">
+              <h2
+                class="text-lg lg:text-4xl text-black font-semibold font-serif"
+              >
+                Medium
+              </h2>
+              <p class="mt-2 text-wood-500 text-black">
+                Premium information every sunday
+              </p>
+              <ul
+                class="space-y-3 font-normal list-inside list-disc mt-3 text-black"
+                role="list"
+              >
+                <li>Access to premium posts</li>
+                <li>Weekly newsletters</li>
+                <li>Simple, secure card payment</li>
+                <li>No Advertising</li>
+                <li>Special discounts</li>
+              </ul>
+            </div>
+            <div class="order-first">
+              <p>
+                <span
+                  x-text="annual ? '$29' : '$49'"
+                  class="text-5xl font-light text-black font-serif"></span>
+                <span
+                  x-text="annual ? '/annual' : '/month'"
+                  class="ext-wood-500 font-medium text-black">/month</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between flex-1 px-6 pb-8 sm:px-8">
+          <div>
+            <a
+              href="#_"
+              title="link to your page"
+              aria-label="your label"
+              class="inline-flex justify-center py-1 px-6 h-10 items-center text-sm font-medium tracking-wide focus:outline-none bg-black text-white hover:bg-mist-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mist-600 active:bg-mist-700 active:text-white/80 disabled:opacity-30 disabled:hover:bg-mist-600 w-full"
+            >
+              Get started
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col overflow-hidden bg-mist-500">
+        <div class="px-6 py-8 sm:p-10 sm:pb-6">
+          <div
+            class="grid items-end justify-center w-full grid-cols-1 text-left"
+          >
+            <div class="mt-6">
+              <h2
+                class="text-lg lg:text-4xl text-black font-semibold font-serif"
+              >
+                Premium
+              </h2>
+              <p class="mt-2 text-wood-500 text-black">
+                Premium information every sunday
+              </p>
+              <ul
+                class="space-y-3 font-normal list-inside list-disc mt-3 text-black"
+                role="list"
+              >
+                <li>Access to premium posts</li>
+                <li>Weekly newsletters</li>
+                <li>Simple, secure card payment</li>
+                <li>No Advertising</li>
+                <li>Special discounts</li>
+              </ul>
+            </div>
+            <div class="order-first">
+              <p>
+                <span
+                  x-text="annual ? '$99' : '$199'"
+                  class="text-5xl font-light text-black font-serif"></span>
+                <span
+                  x-text="annual ? '/annual' : '/month'"
+                  class="ext-wood-500 font-medium text-black">/month</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between flex-1 px-6 pb-8 sm:px-8">
+          <div>
+            <a
+              href="#_"
+              title="link to your page"
+              aria-label="your label"
+              class="inline-flex justify-center py-1 px-6 h-10 items-center text-sm font-medium tracking-wide focus:outline-none bg-black text-white hover:bg-mist-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mist-600 active:bg-mist-700 active:text-white/80 disabled:opacity-30 disabled:hover:bg-mist-600 w-full"
+            >
+              Get started
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

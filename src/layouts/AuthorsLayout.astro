@@ -1,0 +1,25 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+<BaseLayout>
+  <section>
+    <div
+      class="px-8 md:px-12 max-w-6xl mx-auto py-32 2xl:max-w-7xl items-center"
+    >
+      <div class="max-w-xl mx-auto">
+        <img
+          class="object-cover size-16 rounded-full  lg:h-20 lg:w-20"
+          src={frontmatter.image.url}
+          alt={frontmatter.image.alt}
+        />
+        <p
+          class="text-black font-serif text-4xl mt-12 lg:text-8xl uppercase font-semibold"
+        >
+          {frontmatter.title}
+        </p>
+      </div>
+      <div class="prose-styles mx-auto mt-12"><slot /></div>
+    </div>
+  </section>
+</BaseLayout>
