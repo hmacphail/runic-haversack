@@ -2,11 +2,15 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
     extend: {
-       colors: {
+      colors: {
         black: "#273846",
+        gradient: {
+          start: '#b2afe4',
+          end: '#4840a0'
+        },
         wood: {
           50: "#FFFFFF",
           100: "#FEFDFB",
@@ -20,17 +24,17 @@ module.exports = {
           900: "#493518",
         },
         mist: {
-         '50': 'hsl(192, 33%, 97%)',
-    '100': 'hsl(198, 31%, 94%)',
-    '200': 'hsl(193, 32%, 86%)',
-    '300': 'hsl(191, 32%, 79%)',
-    '400': 'hsl(190, 31%, 60%)',
-    '500': 'hsl(190, 30%, 48%)',
-    '600': 'hsl(192, 33%, 39%)',
-    '700': 'hsl(192, 33%, 32%)',
-    '800': 'hsl(193, 30%, 27%)',
-    '900': 'hsl(193, 26%, 24%)',
-    '950': 'hsl(194, 26%, 16%)',
+          50: 'hsl(192, 33%, 97%)',
+          100: 'hsl(198, 31%, 94%)',
+          200: 'hsl(193, 32%, 86%)',
+          300: 'hsl(191, 32%, 79%)',
+          400: 'hsl(190, 31%, 60%)',
+          500: 'hsl(190, 30%, 48%)',
+          600: 'hsl(192, 33%, 39%)',
+          700: 'hsl(192, 33%, 32%)',
+          800: 'hsl(193, 30%, 27%)',
+          900: 'hsl(193, 26%, 24%)',
+          950: 'hsl(194, 26%, 16%)',
         },
         salmon: {
           50: "#FEF5F0",
@@ -57,16 +61,16 @@ module.exports = {
           900: "#493304",
         },
       },
-       fontFamily: {
+      fontFamily: {
         sans: ["inter", ...defaultTheme.fontFamily.sans],
         serif: ["Gilda Display", ...defaultTheme.fontFamily.sans],
         mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
       },
     },
   },
-	plugins: [
-		 require('@tailwindcss/typography'),
+  plugins: [
+    require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
-		require('@tailwindcss/aspect-ratio'),
-	],
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }
