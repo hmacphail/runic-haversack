@@ -1,19 +1,19 @@
 ---
-// const { title, url, description, pubDate, author, image } = Astro.props;
+const { title, url, description, pubDate, author, image } = Astro.props;
 const logoImage = "/public/rh_large.png";
 ---
 
 <div class="w-full pt-6 relative">
   <div class="mx-auto 2xl:max-w-7xl p-4">
     <!-- Gradient Background -->
-    <div class="w-full absolute inset-0 bg-gradient-to-br from-gradient-start to-gradient-end"></div>
+    <div class="w-full absolute inset-0 bg-gradient-to-br from-regal-200 to-regal-600"></div>
 
     <!-- Resizing white box -->
     <div
-      class="relative 2xl:max-w-7xl lg:mt-24 max-w-6xl md:py-10 md:mr-14 mx-auto p-6"
+      class="relative 2xl:max-w-7xl lg:mt-24 max-w-6xl md:p-10 mx-auto p-4"
     >
       <div
-        class="bg-wood-100 max-w-xl"
+        class="bg-white max-w-xl"
       >
         <div class="px-4 pt-4 pb-8">
           <!-- Logo -->

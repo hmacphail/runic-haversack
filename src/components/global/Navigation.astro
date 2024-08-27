@@ -1,67 +1,44 @@
-<div class="mx-auto w-full justify-center fixed z-50 bg-wood-100 duration-50">
+<div class="mx-auto w-full justify-center fixed z-50 bg-regal-50">
   <div
-    class="mx-auto w-full flex flex-col lg:flex-row lg:items-center lg:justify-between px-8 py-3 md:px-12 max-w-6xl 2xl:max-w-7xl"
+    class="mx-auto w-full flex flex-row items-center justify-between px-8 py-6 md:px-12 max-w-6xl 2xl:max-w-screen-2xl 2xl:px-32"
     x-data="{ open: false }"
   >
     <div class="items-center flex justify-between flex-row">
       <a
         href="/"
-        title="link to your page"
-        aria-label="your label"
-        class="items-center font-bold inline-flex text-black font-serif text-2xl"
+        title="Runic Haversack"
+        aria-label="Runic Haversack"
+        class="items-center font-bold inline-flex text-regal-800 font-serif text-xl"
       >
-        phanatik
+        Runic Haversack
       </a>
-      <button
-        class="focus:outline-none focus:shadow-outline md:hidden"
-        @click="open = !open"
-      >
-        <svg
-          class="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          ><path
-            :class="{'hidden': open, 'inline-flex': !open }"
-            class="inline-flex"
-            d="M4 6h16M4 12h16M4 18h16"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"></path><path
-            :class="{'hidden': !open, 'inline-flex': open }"
-            class="hidden"
-            d="M6 18L18 6M6 6l12 12"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"></path>
-        </svg>
-      </button>
     </div>
     <nav
       :class="{'flex': open, 'hidden': !open}"
-      class="flex-col items-center flex-grow hidden lg:flex lg:flex-row gap-3 lg:gap-6 lg:justify-start text-sm text-black"
+      class="flex-col items-center flex-grow hidden sm:flex sm:flex-row gap-3 sm:gap-6 sm:justify-end text-sm text-black"
     >
-      <a
-        href="/system/overview"
-        title="link to your page"
-        aria-label="your label"
-        class="hover:text-salmon-600 lg:ml-auto"
-        >Overview
-      </a>
-      <a
-        href="/system/style-guide"
-        title="link to your page"
-        aria-label="your label"
-        class="hover:text-salmon-600"
-        >Style Guide
-      </a>
+      <!--<a-->
+      <!--  href="/system/overview"-->
+      <!--  title="link to your page"-->
+      <!--  aria-label="your label"-->
+      <!--  class="hover:text-salmon-600 lg:ml-auto"-->
+      <!--  >Overview-->
+      <!--</a>-->
+      <!--<a-->
+      <!--  href="/system/style-guide"-->
+      <!--  title="link to your page"-->
+      <!--  aria-label="your label"-->
+      <!--  class="hover:text-salmon-600"-->
+      <!--  >Style Guide-->
+      <!--</a>-->
 
       <a
-        href="https://lexingtonthemes.lemonsqueezy.com/checkout/buy/cd4e7a6a-f165-43e1-a971-2f54570d88ca"
-        title="link to your page"
-        aria-label="your label"
-        class="inline-flex justify-center py-1 px-6 h-10 items-center text-sm font-medium tracking-wide focus:outline-none bg-black text-white hover:bg-mist-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mist-600 active:bg-mist-700 active:text-white/80 disabled:opacity-30 disabled:hover:bg-mist-600"
-        >Get Phanatik
+        href="https://runic-haversack.square.site/s/shop"
+        title="Shop Now"
+        aria-label="Shop Now"
+        class="inline-flex justify-center py-1 px-4 h-10 items-center text-sm font-medium border-2 border-regal-800 tracking-wide focus:outline-none text-regal-800 hover:bg-regal-800 hover:bg-opacity-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-regal-100 disabled:opacity-30"
+        >
+        Shop Now
       </a>
     </nav>
   </div>

@@ -6,10 +6,35 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: "#273846",
-        gradient: {
-          start: '#b2afe4',
-          end: '#4840a0'
+        black: '#171717',
+        primary: '#4840a0',
+        secondary: '#a4da2d',
+        tertiary: '#e88030',
+        regal: {
+          50: '#f0eff4', // 'purple' background on square site
+          100: '#dedce8', // empty photo background on square site
+          200: '#b2afe4', // gradient secondary colour
+          300: '#8270c6',
+          400: '#5f4aad',
+          500: '#605BAC', // secondary paletton
+          600: '#4840a0', // primary
+          700: '#311b86',
+          800: '#241e62', // text on square site
+          900: '#221066'
+        },
+        lime: {
+          300: '#ccf472',
+          400: '#bdee4f',
+          500: '#a4da2d',
+          600: '#82b414',
+          700: '#628b05'
+        },
+        tangerine: {
+          300: '#ffb277',
+          400: '#fe9e54',
+          500: '#e88030',
+          600: '#c05f15',
+          700: '#944406'
         },
         wood: {
           50: "#FFFFFF",
@@ -62,8 +87,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["inter", ...defaultTheme.fontFamily.sans],
-        serif: ["Gilda Display", ...defaultTheme.fontFamily.sans],
+        sans: ["Sen", ...defaultTheme.fontFamily.sans],
+        serif: ["IBM Plex Serif", ...defaultTheme.fontFamily.serif],
         mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
       },
     },
