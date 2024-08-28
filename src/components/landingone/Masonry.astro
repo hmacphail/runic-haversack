@@ -1,28 +1,6 @@
 ---
-import { getCollection } from "astro:content";
-const allPosts = await getCollection("posts");
-import EntriesTwo from "../entries/EntriesTwo.astro";
-
-// TODO: add auth token to Vercel env vars
-const headers = {
-  'Authorization': 'Bearer EAAAl-iKSuYoIzLwg5ru4i9jb4a0STzRKt7h6N7b5kTMvV26N6KE5UG0nrzT0gwK',
-  'Content-Type': 'application/json'
-}
-
-const categoryList = await fetch("https://connect.squareup.com/v2/catalog/list?types=CATEGORY", { headers });
-const categories = await categoryList.json();
-const featured = categories?.objects.find((cat) => cat?.category_data?.name.includes("Featured"))
-
-let items = null;
-if (featured) {
-  const searchItems = await fetch("https://connect.squareup.com/v2/catalog/search-catalog-items", {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify({'category_ids': [featured.id]})
-  });
-  const search = await searchItems.json();
-  items = search?.items;
-}
+import { getFeaturedItems } from "../../pages/featured-items"
+const items = await getFeaturedItems();
 ---
 <section>
   <div class="2xl:max-w-7xl max-w-6xl md:px-12 mx-auto px-8 py-12">

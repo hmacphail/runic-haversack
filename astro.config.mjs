@@ -1,7 +1,9 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
-import mdx from "@astrojs/mdx"; 
+import mdx from "@astrojs/mdx";
+import vercel from "@astrojs/vercel/serverless";
+
 export default defineConfig({
   markdown: {
     drafts: true,
@@ -15,5 +17,7 @@ export default defineConfig({
     drafts: true
   },
   site: 'https://lexingtonthemes.com',
-  integrations: [tailwind(),   sitemap(), mdx()]
+  integrations: [tailwind(), sitemap(), mdx()],
+  output: "hybrid",
+  adapter: vercel()
 });
