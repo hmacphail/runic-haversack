@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
+import icon from "astro-icon";
 import vercel from "@astrojs/vercel/serverless";
 
 export default defineConfig({
@@ -17,7 +18,7 @@ export default defineConfig({
     drafts: true
   },
   site: 'https://lexingtonthemes.com',
-  integrations: [tailwind(), sitemap(), mdx()],
+  integrations: [tailwind(), sitemap(), mdx(), icon()],
   output: "hybrid",
   adapter: vercel()
 });
