@@ -1,5 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components'
+const socialIcons = [
+  {
+    icon: "fa-brands:facebook-f",
+    title: "Facebook",
+    url: "https://www.facebook.com/runic.haversack/",
+  },
+  {
+    icon: "fa-brands:instagram",
+    title: "Instagram",
+    url: "https://www.instagram.com/Runic.haversack/",
+  },
+];
 ---
 
 <footer style="background: linear-gradient(135deg, #b2afe4 0%, #4840a0 100%);">
@@ -18,13 +30,12 @@ import { Icon } from 'astro-icon/components'
           Runic Haversack
         </a>
       </div>
-      <div class="flex-col items-center flex-grow hidden sm:flex sm:flex-row gap-3 sm:justify-end text-black">
-        <a href="https://www.facebook.com/runic.haversack/" title="Facebook" target="_blank" class="bg-white p-1.5 rounded-full">
-          <Icon name="fa-brands:facebook-f" class="h-3.5 w-3.5" />
-        </a>
-        <a href="https://www.instagram.com/Runic.haversack/" title="Instagram" target="_blank" class="bg-white p-1.5 rounded-full">
-          <Icon name="fa-brands:instagram" class="h-3.5 w-3.5"/>
-        </a>
+      <div class="items-center flex flex-grow flex-row gap-3 justify-end text-black">
+        {socialIcons.map((item) => (
+          <a href={item.url} title={item.title} target="_blank" class="bg-white p-1.5 rounded-full">
+            <Icon name={item.icon} class="h-3.5 w-3.5" />
+          </a>
+        ))}
       </div>
     </div>
   </div>

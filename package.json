@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@iconify-json/fa-brands": "^1.2.1",
+    "@iconify-json/fa-regular": "^1.2.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10"
