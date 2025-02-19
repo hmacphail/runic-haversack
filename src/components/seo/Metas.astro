@@ -1,13 +1,12 @@
 ---
-const { title, description, url, socialImage, twitterImage, author } =
+const { title, description, url, socialImage } =
   Astro.props;
-let subtitle = "Lexington Themes";
+let subtitle = "Home";
 ---
 <!--
     Standard meta
  -->
 <meta charset="UTF-8" />
-<meta name="author" content="Yout name" />
 <meta name="theme-color" content="#ffffff" />
 <meta name="viewport" content="width=device-width" />
 <meta name="msapplication-TileColor" content="#ffffff" />
@@ -19,7 +18,6 @@ let subtitle = "Lexington Themes";
  -->
 <meta name="title" content={`${title} - ${subtitle}`} />
 <meta name="description" content={description} />
-<meta name="author" content={author} />
 <!---------------------
     open graph standard
 --------------------->
@@ -34,15 +32,6 @@ let subtitle = "Lexington Themes";
   property="og:image"
   content={Astro.site ? `${Astro.site}${socialImage}` : socialImage}
 />
-<!---------------------
-    Open Graph Twitter
- --------------------->
-
 <meta property="og:site_name" content={title} />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:description" content={description} />
-<meta
-  name="twitter:image"
-  content={Astro.site ? `${Astro.site}${twitterImage}` : twitterImage}
-/>
+
 <title>{title} - {subtitle}</title>
