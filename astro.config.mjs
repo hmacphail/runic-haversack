@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
-import node from "@astrojs/node";
+import vercel from "@astrojs/vercel/serverless"
 import icon from "astro-icon";
 
 export default defineConfig({
@@ -20,7 +20,5 @@ export default defineConfig({
   site: "https://runichaversack.ca",
   integrations: [tailwind(), sitemap(), mdx(), icon()],
   output: "server",
-  adapter: node({
-    mode: "standalone",
-  }),
+  adapter: vercel(),
 });
