@@ -22,7 +22,7 @@ export async function getFeaturedItems() {
         const search = await searchItems.json();
         items = search?.items;
     }
-    
+
     if (!items) {
         return new Response(null, {
             status: 404,

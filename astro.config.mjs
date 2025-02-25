@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
-import vercel from "@astrojs/vercel/serverless";
+import node from "@astrojs/node";
 
 export default defineConfig({
   markdown: {
@@ -17,8 +17,10 @@ export default defineConfig({
     skipInline: false,
     drafts: true
   },
-  site: 'https://lexingtonthemes.com',
+  site: 'https://runichaversack.ca',
   integrations: [tailwind(), sitemap(), mdx(), icon()],
   output: "hybrid",
-  adapter: vercel()
+  adapter: node({
+    mode: 'standalone',
+  }),
 });
