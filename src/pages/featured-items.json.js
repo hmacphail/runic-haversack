@@ -1,5 +1,3 @@
-export const prerender = false;
-
 export async function getFeaturedItems() {
     const headers = {
         'Authorization': `Bearer ${import.meta.env.SQUARE_ACCESS_TOKEN}`,

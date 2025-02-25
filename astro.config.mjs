@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
-import icon from "astro-icon";
 import node from "@astrojs/node";
+import icon from "astro-icon";
 
 export default defineConfig({
   markdown: {
@@ -17,10 +17,10 @@ export default defineConfig({
     skipInline: false,
     drafts: true
   },
-  site: 'https://runichaversack.ca',
+  site: "https://runichaversack.ca",
   integrations: [tailwind(), sitemap(), mdx(), icon()],
-  output: "hybrid",
+  output: "server",
   adapter: node({
-    mode: 'standalone',
+    mode: "standalone",
   }),
 });
