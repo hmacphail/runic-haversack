@@ -1,7 +1,7 @@
 ---
 const { title, description, url, socialImage } =
   Astro.props;
-let subtitle = "Home";
+let pageName = "Home";
 ---
 <!--
     Standard meta
@@ -16,12 +16,12 @@ let subtitle = "Home";
 <!--
     General meta for Open Graphs
  -->
-<meta name="title" content={`${title} - ${subtitle}`} />
+<meta name="title" content={`${pageName} | ${title}`} />
 <meta name="description" content={description} />
 <!---------------------
     open graph standard
 --------------------->
-<meta property="og:title" content={`${title} - ${subtitle}`} />
+<meta property="og:title" content={`${pageName} | ${title}`} />
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={url} />
@@ -34,4 +34,4 @@ let subtitle = "Home";
 />
 <meta property="og:site_name" content={title} />
 
-<title>{title} - {subtitle}</title>
+<title>${pageName} | ${title}</title>

@@ -1,6 +1,7 @@
 ---
-import { getFeaturedItems } from "../../pages/featured-items"
-const items = await getFeaturedItems();
+import { getFeaturedItems } from "../../pages/featured-items.json"
+const resp = await getFeaturedItems();
+const items = await resp.json();
 ---
 <section>
   <div class="2xl:max-w-7xl max-w-6xl md:px-12 mx-auto px-8 py-12">
@@ -8,7 +9,7 @@ const items = await getFeaturedItems();
       class="grid gap-4 grid-cols-1 lg:gap-y-24 sm:grid-cols-2 lg:grid-cols-3"
     >
       { items?.map((item) => (
-              <span>{item.id}</span>
+              <span>{item.id} - {item.item_data?.name}</span>
           ))
       }
     </div>

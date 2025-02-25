@@ -22,6 +22,18 @@ export async function getFeaturedItems() {
         const search = await searchItems.json();
         items = search?.items;
     }
+    
+    if (!items) {
+        return new Response(null, {
+            status: 404,
+            statusText: 'Not found'
+        });
+    }
 
-    return items;
+    return new Response(
+        JSON.stringify(items), {
+            status: 200,
+            headers: { "Content-Type": "application/json" }
+        }
+    );
 }
