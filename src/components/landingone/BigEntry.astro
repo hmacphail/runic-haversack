@@ -1,24 +1,29 @@
 ---
-import { getCollection } from "astro:content";
-const allPosts = await getCollection("posts");
-import EntriesOne from "../entries/EntriesOne.astro";
+const logoImage = "/rh_large.png";
 ---
 <section>
   <div class="mx-auto 2xl:max-w-screen-2xl grid py-12 space-y-6">
-    {
-      allPosts
-        .slice(0, 1)
-        .map((post) => (
-          <EntriesOne
-            url={"/posts/" + post.slug}
-            title={post.data.title}
-            description={post.data.description}
-            alt={post.data.title}
-            pubDate={post.data.pubDate.toString().slice(0, 10)}
-            author={post.data.author}
-            image={post.data.image.url}
-          />
-        ))
-    }
+    <div class="w-full pt-6 relative">
+      <div class="mx-auto 2xl:max-w-7xl p-4">
+        <!-- Gradient Background -->
+        <div class="w-full absolute inset-0 bg-gradient-to-br from-regal-200 to-regal-600">
+          <div class="w-full h-full bg-[url(/bg_entry_pattern.png)] bg-repeat"/>
+        </div>
+
+        <!-- Resizing white box -->
+        <div class="relative 2xl:max-w-7xl lg:mt-24 max-w-6xl md:p-10 mx-auto p-4">
+          <div class="bg-white max-w-xl">
+            <div class="px-4 pt-4 pb-8">
+              <!-- Logo -->
+              <img
+                  class="w-full h-full"
+                  src={logoImage}
+                  alt={"Runic Haversack"}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
