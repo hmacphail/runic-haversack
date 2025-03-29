@@ -1,6 +1,5 @@
 ---
-const { title, description, url, socialImage } =
-  Astro.props;
+const { title, description, url, image } = Astro.props;
 let pageName = "Home";
 ---
 <!--
@@ -29,7 +28,7 @@ let pageName = "Home";
 --------------------->
 <meta
   property="og:image"
-  content={`${url}${socialImage}`}
+  content={Astro.site ? `${Astro.site}${image}` : image}
 />
 <meta property="og:site_name" content={title} />
 
