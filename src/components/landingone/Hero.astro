@@ -1,3 +1,7 @@
+---
+import { getEntry } from "astro:content";
+const shop = await getEntry("links", "shop");
+---
 <section>
     <div class="items-center 2xl:max-w-7xl max-w-6xl md:px-12 mx-auto px-8">
       <div class="border-b pb-5 text-balance">
@@ -9,12 +13,12 @@
         </p>
         <p class="my-5">
             <a
-                href="https://runic-haversack.square.site/s/shop"
-                title="Shop Now"
-                aria-label="Shop Now"
+                href={shop.data.url}
+                title={shop.data.title}
+                aria-label={shop.data.title}
                 class="inline-flex justify-center py-1 px-4 h-10 items-center text-sm font-medium tracking-wide focus:outline-none bg-regal-600 text-white hover:bg-opacity-90 focus-visible:outline-regal-100 disabled:opacity-30"
             >
-                Shop Now
+                {shop.data.title}
             </a>
         </p>
       </div>

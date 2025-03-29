@@ -1,3 +1,7 @@
+---
+import { getEntry } from "astro:content";
+const shop = await getEntry("links", "shop");
+---
 <div class="mx-auto w-full justify-center fixed z-50 bg-regal-50">
   <div
     class="mx-auto w-full flex flex-row items-center justify-between px-8 py-6 md:px-12 max-w-6xl 2xl:max-w-screen-2xl 2xl:px-32"
@@ -17,28 +21,13 @@
       :class="{'flex': open, 'hidden': !open}"
       class="flex-col items-center flex-grow hidden sm:flex sm:flex-row gap-3 sm:gap-6 sm:justify-end text-sm text-black"
     >
-      <!--<a-->
-      <!--  href="/system/overview"-->
-      <!--  title="link to your page"-->
-      <!--  aria-label="your label"-->
-      <!--  class="hover:text-salmon-600 lg:ml-auto"-->
-      <!--  >Overview-->
-      <!--</a>-->
-      <!--<a-->
-      <!--  href="/system/style-guide"-->
-      <!--  title="link to your page"-->
-      <!--  aria-label="your label"-->
-      <!--  class="hover:text-salmon-600"-->
-      <!--  >Style Guide-->
-      <!--</a>-->
-
       <a
-        href="https://runic-haversack.square.site/s/shop"
-        title="Shop Now"
-        aria-label="Shop Now"
-        class="inline-flex justify-center py-1 px-4 h-10 items-center text-sm font-medium border-2 border-regal-800 tracking-wide focus:outline-none text-regal-800 hover:bg-regal-800 hover:bg-opacity-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-regal-100 disabled:opacity-30"
+          href={shop.data.url}
+          title={shop.data.title}
+          aria-label={shop.data.title}
+          class="inline-flex justify-center py-1 px-4 h-10 items-center text-sm font-medium border-2 border-regal-800 tracking-wide focus:outline-none text-regal-800 hover:bg-regal-800 hover:bg-opacity-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-regal-100 disabled:opacity-30"
         >
-        Shop Now
+          {shop.data.title}
       </a>
     </nav>
   </div>
