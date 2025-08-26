@@ -1,17 +1,26 @@
 ---
-import { getFeaturedItems } from "../../pages/featured-items.json"
+import Entries from "../entries/Entries.astro";
+import { getFeaturedItems } from "../../pages/featured-items.json.js"
 const resp = await getFeaturedItems();
-const items = await resp.json();
+const featuredItems = await resp.json();
+const items = featuredItems.map((featItem) => featItem.item_data);
 ---
 <section>
   <div class="2xl:max-w-7xl max-w-6xl md:px-12 mx-auto px-8 py-12">
     <div
-      class="grid gap-4 grid-cols-1 lg:gap-y-24 sm:grid-cols-2 lg:grid-cols-3"
+      class="grid gap-4 grid-cols-1 lg:gap-y-24 lg:grid-cols-2"
     >
-      <!--{ items?.map((item) => (-->
-      <!--        <span>{item.id} - {item.item_data?.name}</span>-->
-      <!--    ))-->
-      <!--}-->
+      {
+        items.map((item) => (
+          <Entries
+            title={item.name}
+            description={item.description_plaintext}
+            url={item.ecom_uri}
+            images={item.ecom_image_uris}
+            variations={item.variations}
+          />
+        ))
+      }
     </div>
   </div>
 </section>
