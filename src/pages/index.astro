@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Hero from "@/components/landingone/Hero.astro";
-import BigEntry from "@/components/landingone/BigEntry.astro";
-import Masonry from "@/components/landingone/Masonry.astro";
-import Subscribe from "@/components/cta/Subscribe.astro";
+import HeroEntry from "../components/main/HeroEntry.astro";
+import MainTitle from "../components/main/MainTitle.astro";
+import FeaturedItems from "../components/items/FeaturedItems.astro";
+import ContactUs from "../components/main/ContactUs.astro";
 ---
 <BaseLayout>
-  <BigEntry/>
-  <Hero/>
-  <Masonry/>
-  <Subscribe />
+  <HeroEntry/>
+  <MainTitle/>
+  <FeaturedItems/>
+  <ContactUs />
 </BaseLayout>

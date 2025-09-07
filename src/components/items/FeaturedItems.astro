@@ -1,5 +1,5 @@
 ---
-import Entries from "../entries/Entries.astro";
+import ItemDisplay from "./ItemDisplay.astro";
 import { getFeaturedItems } from "../../pages/featured-items.json.js"
 const resp = await getFeaturedItems();
 const featuredItems = await resp.json();
@@ -8,9 +8,9 @@ const mainItem = items.splice(0, 1)[0];
 ---
 <section>
   <div class="2xl:max-w-7xl max-w-6xl md:px-12 mx-auto px-8 pt-6 pb-10">
-    <div class="mb-6">
+    <div class="mb-8">
       {
-        <Entries
+        <ItemDisplay
           title={mainItem.name}
           description={mainItem.description_plaintext}
           url={mainItem.ecom_uri}
@@ -20,10 +20,10 @@ const mainItem = items.splice(0, 1)[0];
         />
       }
     </div>
-    <div class="grid gap-4 grid-cols-1 lg:gap-y-8 lg:grid-cols-2">
+    <div class="grid gap-6 grid-cols-1 lg:gap-y-8 lg:grid-cols-2">
       {
         items.map((item) => (
-          <Entries
+          <ItemDisplay
             title={item.name}
             description={item.description_plaintext}
             url={item.ecom_uri}
