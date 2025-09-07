@@ -1,16 +1,18 @@
 ---
-const { title, description, url, images, variations } = Astro.props;
-const price = Number(variations[0].item_variation_data.price_money.amount / 100).toFixed(2);
-const image = images[0];
+const { title, description, url, images, variations, isMain } = Astro.props;
+const price = Number((variations[0].item_variation_data.price_money.amount / 100) ?? 0).toFixed(2);
+const image = images?.[0];
 ---
 
-<div class="grid sm:grid-cols-2 p-2 group bg-regal-200">
+<div class="grid sm:grid-cols-2 p-2 group bg-regal-300">
   <div class="flex flex-col justify-between md:min-h-96 p-4 relative overflow-hidden h-full group bg-white">
     <div>
       <p class="font-medium mt-2 text-regal-400 text-base uppercase text-balance">
         {title}
       </p>
-      <p class="text-xs text-zinc-400">${price} CAD</p>
+      {price > 0 &&
+        <p class="text-xs text-zinc-700">${price} CAD</p>
+      }
       </div>
 
       <div class="gap-12 flex flex-col items-start justify-between relative">
@@ -20,7 +22,7 @@ const image = images[0];
         <a
           href={url}
           title={title}
-          class="bg-regal-200 px-4 flex gap-1 items-center py-2.5 h-9 text-sm font-semibold text-black hover:bg-zinc-200"
+          class="bg-regal-200 px-4 flex gap-1 items-center py-2.5 h-9 text-sm font-semibold text-black bg-opacity-70 hover:bg-opacity-100"
         >
           View Item
         </a>
