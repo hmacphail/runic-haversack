@@ -1,15 +1,24 @@
 ---
 import ItemDisplay from "./ItemDisplay.astro";
 import { getFeaturedItems } from "../../pages/featured-items.json.js"
-const resp = await getFeaturedItems();
-const featuredItems = await resp.json();
-const items = featuredItems.map((featItem) => featItem.item_data);
-const mainItem = items.splice(0, 1)[0];
+
+let items = [];
+let mainItem = null;
+try {
+  const resp = await getFeaturedItems();
+  if (resp.ok) {
+    const featuredItems = await resp.json();
+    items = featuredItems.map((featItem) => featItem.item_data);
+    mainItem = items.splice(0, 1)[0];
+  }
+} catch (error) {
+  console.error('Error fetching featured items:', error);
+}
 ---
 <section>
   <div class="2xl:max-w-7xl max-w-6xl md:px-12 mx-auto px-8 pt-6 pb-10">
-    <div class="mb-8">
-      {
+    {mainItem && (
+      <div class="mb-8">
         <ItemDisplay
           title={mainItem.name}
           description={mainItem.description_plaintext}
@@ -18,21 +27,24 @@ const mainItem = items.splice(0, 1)[0];
           variations={mainItem.variations}
           isMain={true}
         />
-      }
-    </div>
-    <div class="grid gap-6 grid-cols-1 lg:gap-y-8 lg:grid-cols-2">
-      {
-        items.map((item) => (
-          <ItemDisplay
-            title={item.name}
-            description={item.description_plaintext}
-            url={item.ecom_uri}
-            images={item.ecom_image_uris}
-            variations={item.variations}
-            isMain={false}
-          />
-        ))
-      }
-    </div>
+      </div>
+    )}
+    
+    {items.length > 0 && (
+      <div class="grid gap-6 grid-cols-1 lg:gap-y-8 lg:grid-cols-2">
+        {
+          items.map((item) => (
+            <ItemDisplay
+              title={item.name}
+              description={item.description_plaintext}
+              url={item.ecom_uri}
+              images={item.ecom_image_uris}
+              variations={item.variations}
+              isMain={false}
+            />
+          ))
+        }
+      </div>
+    )}
   </div>
 </section>

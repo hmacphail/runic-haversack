@@ -4,8 +4,8 @@ const price = Number((variations[0].item_variation_data.price_money.amount / 100
 const image = images?.[0];
 ---
 
-<div class="grid sm:grid-cols-2 p-2 group bg-regal-300">
-  <div class="flex flex-col justify-between md:min-h-96 p-4 relative overflow-hidden h-full group bg-white">
+<div class={`grid sm:grid-cols-2 p-2 group bg-regal-300 overflow-hidden ${isMain ? 'md:h-96' : ''}`}>
+  <div class={`flex flex-col justify-between p-4 relative overflow-hidden h-full group bg-white ${!isMain ? 'md:min-h-96' : ''}`}>
     <div>
       <p class="font-medium mt-2 text-regal-400 text-base uppercase text-balance">
         {title}
@@ -28,9 +28,11 @@ const image = images?.[0];
         </a>
     </div>
   </div>
-  <img
-    class="w-full h-full object-cover order-first"
-    src={image}
-    alt={title}
-  />
+  <div class="overflow-hidden order-first">
+    <img
+      class="w-full h-full object-cover"
+      src={image}
+      alt={title}
+    />
+  </div>
 </div>
