@@ -6,7 +6,9 @@ const price = Number((variations[0].item_variation_data.price_money.amount / 100
 const componentId = `item-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
+<!-- Product card container: 2-column grid with image and content -->
 <div class={`grid sm:grid-cols-2 p-2 group bg-regal-300 overflow-hidden ${isMain ? 'md:h-[425px]' : ''}`}>
+  <!-- Product information section -->
   <div class={`flex flex-col justify-between p-4 relative overflow-hidden h-full group bg-white ${isMain ? '' : 'md:min-h-96'}`}>
     <div>
       <p class="font-medium mt-2 text-regal-400 text-base uppercase text-balance">
@@ -30,6 +32,7 @@ const componentId = `item-${Math.random().toString(36).substr(2, 9)}`;
         </a>
     </div>
   </div>
+  <!-- Image gallery section with navigation -->
   <PhotoSwitcher 
     images={images} 
     alt={title} 

@@ -4,12 +4,14 @@ import { getFeaturedItems } from "../../pages/featured-items.json.js"
 
 let items = [];
 let mainItem = null;
+
+// Fetch featured items from Square API
 try {
   const resp = await getFeaturedItems();
   if (resp.ok) {
     const featuredItems = await resp.json();
     items = featuredItems.map((featItem) => featItem.item_data);
-    mainItem = items.splice(0, 1)[0];
+    mainItem = items.splice(0, 1)[0]; // Extract first item as main featured item
   }
 } catch (error) {
   console.error('Error fetching featured items:', error);
@@ -17,6 +19,7 @@ try {
 ---
 <section>
   <div class="2xl:max-w-7xl max-w-6xl md:px-12 mx-auto px-8 pt-6 pb-10">
+    {/* Main featured item - displayed prominently at full width */}
     {mainItem && (
       <div class="mb-8">
         <ItemDisplay
@@ -30,6 +33,7 @@ try {
       </div>
     )}
     
+    {/* Additional featured items - displayed in responsive grid */}
     {items.length > 0 && (
       <div class="grid gap-6 grid-cols-1 lg:gap-y-8 lg:grid-cols-2">
         {
