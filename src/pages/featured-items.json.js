@@ -58,7 +58,7 @@ export async function getFeaturedItems() {
         // Process and sort items
         items = items.map((item) => {
             const itemInCategory = item.item_data.categories.find(c => c.id === featured.id);
-            return { ...item, featured_category: { ...itemInCategory }};
+            return { ...item, featured_category: itemInCategory };
         }).sort((a, b) => a.featured_category.ordinal - b.featured_category.ordinal);
 
         return new Response(
