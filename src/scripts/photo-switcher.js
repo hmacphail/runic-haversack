@@ -12,23 +12,26 @@ export class PhotoSwitcher {
     
     // Get DOM elements
     this.imageElement = document.getElementById(`${containerId}-image`);
+    this.placeholderElement = document.getElementById(`${containerId}-placeholder`);
     this.prevButton = document.getElementById(`${containerId}-prev`);
     this.nextButton = document.getElementById(`${containerId}-next`);
-    this.imageContainer = this.imageElement?.parentElement;
+    this.imageContainer = this.imageElement?.parentElement || this.placeholderElement?.parentElement;
     
     // Get all dot buttons
     this.dotButtons = [];
     for (let i = 0; i < this.totalImages; i++) {
       const dot = document.getElementById(`${containerId}-dot-${i}`);
-      if (dot) this.dotButtons.push(dot);
+      if (dot) {
+        this.dotButtons.push(dot);
+      }
     }
     
     this.init();
   }
   
   init() {
-    if (!this.imageElement) {
-      console.warn(`PhotoSwitcher: Image element not found for ${this.containerId}`);
+    if (!this.imageElement && !this.placeholderElement) {
+      console.warn(`No image or placeholder element found for ${this.containerId}`);
       return;
     }
     
@@ -57,7 +60,9 @@ export class PhotoSwitcher {
   }
   
   setupKeyboardNavigation() {
-    if (!this.imageContainer) return;
+    if (!this.imageContainer) {
+      return;
+    }
     
     this.imageContainer.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
@@ -75,7 +80,9 @@ export class PhotoSwitcher {
   }
   
   setupTouchNavigation() {
-    if (!this.imageContainer) return;
+    if (!this.imageContainer) {
+      return;
+    }
     
     // Touch/swipe variables
     let touchStartX = 0;
@@ -91,7 +98,9 @@ export class PhotoSwitcher {
     
     const handleTouchStart = (e) => {
       // Only handle single touch
-      if (e.touches.length !== 1) return;
+      if (e.touches.length !== 1) {
+        return;
+      }
       
       const touch = e.touches[0];
       touchStartX = touch.clientX;
@@ -103,7 +112,9 @@ export class PhotoSwitcher {
     };
     
     const handleTouchMove = (e) => {
-      if (!isDragging || e.touches.length !== 1) return;
+      if (!isDragging || e.touches.length !== 1) {
+        return;
+      }
       
       const touch = e.touches[0];
       touchEndX = touch.clientX;
@@ -123,7 +134,9 @@ export class PhotoSwitcher {
     };
     
     const handleTouchEnd = (e) => {
-      if (!isDragging) return;
+      if (!isDragging) {
+        return;
+      }
       
       isDragging = false;
       
@@ -174,10 +187,37 @@ export class PhotoSwitcher {
   }
   
   updateImage(index) {
-    if (index < 0 || index >= this.totalImages || !this.imageElement) return;
+    if (index < 0 || index >= this.totalImages) {
+      return;
+    }
     
     this.currentImageIndex = index;
-    this.imageElement.src = this.images[index];
+    const newImageSrc = this.images[index];
+    
+    // Handle image updates with fallback to placeholder
+    if (this.imageElement && newImageSrc) {
+      // Show image, hide placeholder
+      this.imageElement.src = newImageSrc;
+      this.imageElement.style.display = 'block';
+      if (this.placeholderElement) {
+        this.placeholderElement.style.display = 'none';
+      }
+      
+      // Set up error handling for this specific image
+      this.imageElement.onerror = () => {
+        this.imageElement.style.display = 'none';
+        if (this.placeholderElement) {
+          this.placeholderElement.style.display = 'flex';
+        }
+      };
+    } else if (this.placeholderElement) {
+      // No valid image source, show placeholder
+      if (this.imageElement) {
+        this.imageElement.style.display = 'none';
+      }
+      this.placeholderElement.style.display = 'flex';
+    }
+    
     this.updateDotIndicators();
   }
   
