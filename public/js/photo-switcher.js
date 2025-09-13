@@ -225,11 +225,11 @@ class PhotoSwitcher {
     this.dotButtons.forEach((dot, i) => {
       if (dot) {
         if (i === this.currentImageIndex) {
-          dot.classList.remove('bg-white/40');
-          dot.classList.add('bg-white/80');
+          dot.classList.remove('bg-white/30');
+          dot.classList.add('bg-white');
         } else {
-          dot.classList.remove('bg-white/80');
-          dot.classList.add('bg-white/40');
+          dot.classList.remove('bg-white');
+          dot.classList.add('bg-white/30');
         }
       }
     });
