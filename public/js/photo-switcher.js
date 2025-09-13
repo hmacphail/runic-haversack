@@ -3,7 +3,7 @@
  * Handles navigation, keyboard controls, and dot indicators
  */
 
-export class PhotoSwitcher {
+class PhotoSwitcher {
   constructor(containerId, images) {
     this.containerId = containerId;
     this.images = images;
@@ -251,7 +251,7 @@ export class PhotoSwitcher {
  * @param {string} containerId - Unique identifier for the photo switcher instance
  * @param {string[]} images - Array of image URLs
  */
-export function initializePhotoSwitcher(containerId, images) {
+function initializePhotoSwitcher(containerId, images) {
   if (images && images.length > 1) {
     return new PhotoSwitcher(containerId, images);
   }
@@ -261,7 +261,7 @@ export function initializePhotoSwitcher(containerId, images) {
  * Auto-initialize photo switchers from data attributes
  * Usage: Add data-photo-switcher="containerId" and data-images="[...]" to any element
  */
-export function autoInitializePhotoSwitchers() {
+function autoInitializePhotoSwitchers() {
   const elements = document.querySelectorAll('[data-photo-switcher]');
   
   elements.forEach(element => {
